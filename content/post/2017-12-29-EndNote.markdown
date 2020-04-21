@@ -1,0 +1,42 @@
+---
+layout: "post"
+title: "EndNote安装与使用"
+author: "ResonHou"
+categories: ["学术软件教程"]
+tags: ["EndNote","SoftWare",]
+date: 2017-12-29
+hiddenFromHomePage: true
+---
+{{< admonition warning "不要使用这个，不要使用这个，不要使用这个">}}
+<ol>
+    <li>版权原因: 我们可以私下使用盗版，但不可以理所应当。 </li>
+    <li>不好用：对于经常使用Tex的人来说，我觉得并不好用。</li>
+</ol>
+{{< /admonition >}}
+
+
+用 Zotero or JabRef or Zotero+JabRef!
+<!--more-->
+
+## 软件说明
+EndNote是一款文献管理软件，能够有效的管理大量的文献。虽然在初次导入文献时可能会有点费时，但是如果在学会用检索网站(如：[IspireHEP](http://ispirehep.net), [Arxiv](https://arxiv.org/list/hep-ph/new))直接导出成EndNote格式，则会方便许多。最主要的是EndNote可以在写论文时，以tex等多种格式导出，直接用于书写文章。
+
+平时用来分类查看文献，也是一个非常有效的软件。同时提一下，有一款专门为苹果的iOS系统做的文献管理软件，叫“Papers”，平时用的时候还是Papers好用些。
+
+当然，若你已经有了很好的用文件夹的方式来整理分类文献的习惯，也可以类似地在EndNote中建立各种分类仓库，以便你的查找。
+
+## 软件安装
+
+### 资源
+
+* EndNote 官网：http://endnote.com/downloads
+* 网络资源：http://www.jb51.net/softs/539621.html
+
+### 安装过程
+
+1. 去官网或者直接去百度搜索网络资源，下载安装包以及破解包；
+2. 首先以试用方式安装 EndNote X8 包；
+3. 然后将破解包里的文件复制并替换到安装目录；
+4. 打开EndNote，如果看到启动界面出现999999day(s)，说明安装完成。
+
+## 使用说明

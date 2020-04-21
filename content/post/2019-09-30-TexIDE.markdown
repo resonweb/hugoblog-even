@@ -1,0 +1,93 @@
+---
+layout: "post"
+title: "TexLive and TexStudio"
+author: "ResonHou"
+categories: ["学术软件教程"]
+tags: ["SoftWare",]
+date: 2019-09-30
+---
+LaTex 作为目前编写文章的必要工具，自然处于新系统安装后的首要任务。
+<!--more-->
+在讲之前，我们有必要分清几个名词。
+- TexLive, MikTeX:这是Tex语言及现有宏包的发行版。
+- Tex,LaTeX:这是一种文档编写的格式，或者说是一种用于编写文档的编程语言。
+里面通过具体的命令来控制书写的格式，以便撰写tex文档，包括但不限于
+文章、演讲稿、教科书等。Tex文档最突出的特色是公式排版非常漂亮，不
+像Word出来的容易出现错位等多种不好的现象。而Latex则是Tex的继续开发版，
+本质上还是一种语言规范。里而将许多基本的命令进行集成，使得TeX语言更为简单，易用。
+- pdfLaTex,XeLaTeX,LuaLaTeX:这些都是tex文档的**编译器**，负责将文本
+转成机器能看懂的机器码。
+- TeXstudio, TexMaker, WinEdit, VSCode, Vim, Emacs: 
+前三个是专为书写Tex文本文档的**编辑器**，
+后三个是通用的编辑器。
+- CTeX,TeXstudio:这是一类Tex编辑集成开发环境，里面集成的有编辑器、
+编译器还有其它一些辅助功能，如语法检查、缩进等。  
+如果对以上讲解不熟悉，可单纯的将这一类理解为tex专用的编辑器。
+
+**综合亲测结果，编写Tex文档的不二之选是TexLive+TexStudio组合**
+1. 原因一：自由软件，无版权争议
+2. 原因二：全平台支持，GNU/Linux, Windows, MAC
+3. 原因三：易用，TexStudio与TexMaker各有特色，反正不用WinEdt, Rubbish!
+4. 缺点：TexLive的完整安装包体积有点大，3.4G
+
+## 安装Tex
+一定要记得安装在自己的家目录里(例：`~/Programs/texlive`)，不然会出现`tlmgr`没有权限，如果用`sudo`又没有`tlmgr`命令的尴尬境地。  
+* 到清华镜像下载iso：https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/
+* 挂载或解压后运行：
+```bash
+> cd ~/texlive/unpackage/dir  
+> sudo apt install perl-tk
+> ./install-tl -gui=perltk
+```
+* 配置安装目录，如`~/Programs/texlive`
+* 开始安装，需要很长时间
+* 按最后提示配置环境变量
+  - add $PATH
+  - add $MANPATH
+  - add $INFOPATH
+* 设置CTAN源(华中科技大学):           `tlmgr option repository http://mirror.hust.edu.cn/CTAN/systems/texlive/tlnet`
+* 视情况使用参数：`tlmgr update [--self --all --reinstall-forcibly-removed --list]`
+* 下载安装TexStudio：   `sudo apt install texstudio`
+* 配置TexStudio里的命令路径。
+* 特别地，需要在`高级选项`-`Build`-`Build Options`里，将`Commands`目录项设置成`~/Programs/texlive/bin/x86_64-linux`，不然无法编译包含eps图片的文档。
+
+> 手动安装宏包  
+
+* 下载宏包
+* 将 .sty 或是 .cls 放入目录：`~/Programs/texlive/texmf-local/tex/latex/local`
+* 更新包库，运行命令：    `texhash`
+
+## 使用注意
+
+- 不是我不愿意用 **GBK/GB2312** ，主要是目前国际通用编码为 **UTF-8**，所以使用中请大家注意修改默认编码。
+- 由于 **XeLaTex/LuaLaTex** 原生支持中文，所以推荐使用。它们只支持**UTF-8**编码的文件。
+
+## 题外话
+**下面是我之前写的Windows使用Tex说明，已经过时，请不要看了。**
+
+这个编辑器相对于Word来说，入门并不简单，但是我们不求甚解，只需会用别入写就的模板，知道怎样手动的加入宏包就好了。如果有临时需求，可以随时百度特别的技能。
+
+试验过以上各种版本之后，觉得TeXstudio是最好用的一种。所以下面讲TeXstudio的安装与使用。
+
+	- MikTeX 下载：\url{https://miktex.org/download}  
+	- TeXstudio 下载：\url{http://texstudio.sourceforge.net/}  
+	- GSview 下载: \url{http://pages.cs.wisc.edu/~ghost/gsview/get50.htm}  
+	- GhostScript 下载:\url{https://www.ghostscript.com/download/gsdnld.html}  
+	- 学习网址：\\  
+	\url{http://www.ctex.org/documents/packages/layout/index.htm}\\  
+	\url{http://blog.163.com/chen_dawn/blog/static/1125063201352935449246/}  
+
+安装TeXstudio之前，需要先安装MikTeX(Windows)。这两个软件都是免费的，下载网址如下，安装过程不再详述。
+
+由于TeXstudio中没有集成EPS、PS格式的查看软件GSview，这个软件依赖于GhostScript，这两个软件都需要自行下载安装。最好与上面两个软件装到一个文件夹(如：D:$ \backslash $Latex)中。
+
+
+附上GSview的注册码：\\  
+Registered to: 随便取个名字\\  
+Number:
+
+32411-26380
+
+18963-21159
+
+16417-30959

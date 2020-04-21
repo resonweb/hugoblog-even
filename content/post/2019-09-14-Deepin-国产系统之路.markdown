@@ -1,0 +1,96 @@
+---
+layout: "post"
+title: "Deepin-国产系统之路"
+author: "ResonHou"
+categories: ["Computer"]
+tags: ["Linux","Deepin",]
+date: 2019-09-14
+---
+Deepin(深度)系统 GNU/Linux发行版是目前操作系统国产化过程中不得不提的一个重要成员, 因为它在全球GNU/Linux发行版中的影响力已经进入了前15名([Linux发行版全球排名](https://distrowatch.com/dwres.php?resource=popularity)). 其它国内发行的GNU/Linux版本还有Ubuntu Kylin等(详看[国产 GNU/Linux 系统](https://distrowatch.com/search.php?ostype=All&category=All&origin=China&basedon=All&notbasedon=None&desktop=All&architecture=All&package=All&rolling=All&isosize=All&netinstall=All&language=All&defaultinit=All&status=Active) In [Distrowatch](https://distrowatch.com)).
+
+<!--more-->
+多说两句, 虽然也有如华为鸿蒙之类的完全国产的操作系统(尚未谋面), 但是总体来说国产操作系统均是GNU/Linux已有发行版的变种. 但这并不意味着其中带有贬意, 并且应该是值得大家鼓励的. 原因之一是我们不能以狭隘的民族主义来给知识或知识产品划定国界；原因之二是即使影响如GNU, 依然没能使得自己的系统内核成为历史的宠儿. 并且我觉得"拿来主义"本就是人类文明前进的重要手段, 它使得经验的获得更加高效. 关键在于你拿来的东西对于你来说是否是"自由"的, 软件自由的定义参看[GNU官网](http://www.gnu.org/). 因为GNU/Linux是基于[GPL版权协议](http://www.gnu.org/licenses/licenses.html#GPL)发布的, 所以它对于我们来说是完全自由的. 我们只有站在巨人的肩膀上, 才可以使我们更快地看到更远的将来.
+
+
+## 1. 系统下载与安装
+* 下载地址：[https://www.deepin.org/](https://www.deepin.org/)
+* 安装方式: 系统盘制作-BIOS引导项设置-"傻瓜式"安装
+
+## 2. After Installation
+### 应用商店
+深度系统的应用商店简直就是国内用户的福音。首先，我很欣慰，有很多国内软件公司给GNU/Linux系统做适配，并且这个队伍还在增大。其次，虽然有些无良企业坚持不做GNU/Linux适配，但国内用户又重度依赖的软件，深度公司也尽其所能，给出了解决方案。
+
+1. DDE（深度桌面环境）中的[深度原创应用](https://www.deepin.org/original/deepin-appstore/)，使得我们使用系统更加方便，如深度影院，深度录屏等。
+
+2. 良心制作：  
+[WPS Office](https://linux.wps.cn/)：办公必备  
+[福昕PDF阅读器](https://www.foxitsoftware.cn/downloads/)：简洁高效，全球人都在用。  
+网易云：你懂得，年轻人听音乐的追求。  
+有道词典：仍有Bug，不过据说下一版本正在开发中。  
+百度云：惊讶于百度的这波操作，还是表示感谢。  
+米聊：新晋成员。
+> 我突然发现WPS与米聊的背后，都是雷军啊，感谢雷大善人。
+
+3. 感谢深度：使用wine技术，为我们带来了许多惊喜。  
+[QQ]/[TIM]/[微信]/[讯雷极速版]/……  
+以上软件在深度系统下能够使用，与这些软件公司本身无关，是深度在其Windows安装包外层加了一个GNU/Linux系统下仿Windows的虚拟机——wine，才得以解决这些软件在深度系统下的应用。但这只能算是一种折衷的方案，因为这种方案一是不稳定，二是执行效率不高。
+> 马化腾：“就喜欢你看我不爽，又干不死我的样子。”
+
+### 使用Zsh
+Bash shell 作为最默认的基本工具，其安全稳定性及简洁性毋庸置疑。但是少了点个性化，所以用zsh来满足自己的审美, 最主要的是zsh的命令提示很好用.  
+然后oh-my-zsh作为其样式库，用来使用别人写好的主题模板。
+```bash
+>sudo apt install vim git zsh
+>sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+>vim .zshrc
+    # 修改主题，我觉得 "josh" 主题挺好看的,
+    # 但是在DDE终端中,闪电号效果出不来
+    # 改用传统的 "mrtazz"
+>sudo vim /etc/passwd        
+    # 修改默认的Shell
+    # 安装oh-my-zsh时,会自动修改,这一步可省略
+```
+> Ubuntu终端默认颜色：RGB：44.0.30 16色：#2C001E
+
+### 安装GoldenDict
+之前一直觉得StarDict挺好用的，老实说人家也确实很好用。弃用的原因其实是因为官网声明：由于版权原因，它们已经无限期停止更新了。并且给我们推荐了几个替代品，其中就有它们的继承者——黄金词典（GoldenDict）。它支持StarDict的词典格式，并且不止于此。所以我们仍然可以使用旧的词典包，我还搜罗到其他三个G的词典，很好用，已收藏！
+* 安装命令： `sudo apt install goldendict `  
+字典下载地址：http://download.huzheng.org/zh_CN/  
+我现在使用的字典：  
+1. 懒虫简明汉英(英汉)词典
+2. 21世纪英汉汉英双向字典
+3. 计算机词汇
+4. Oxford Advanced Learner's English-Chinese Dictionary
+5. Oxford Advanced Learners Dictionary 8th Ed.
+6. Longman Pronunciation Dictionary
+
+### 使用python pip
+
+**注意**:  对于使用`pip`的意义有待商议，因为基于debian的系统在`apt`软件仓库中已经收录了python的库包，可用`sudo apt install python-**`来安装相应的库包。  
+
+系统自带 python ，但是没有 pip，所以先要下载 pip ( 系统现在默认使用的 python2.7 ，所以默认 pip 为 pip2 ，如果要使用 python3 ，则要下载 pip3 )，然后更改pip源(pip2和pip3通用一个pip源文件)，再下载numpy包。命令如下：
+```bash
+>sudo apt install python-pip
+>mkidr ~/.pip
+>vim ~/.pip/pip.conf     # 添加内容如下
+>pip install numpy
+```
+添加内容：  
+> [global]  
+index-url = https://pypi.tuna.tsinghua.edu.cn/simple  
+[install]  
+trusted-host = mirrors.aliyun.com  
+[list]  
+format=legacy  
+
+## 生产工具
+### 安装 Jaxodraw (费曼图)
+下载地址：http://jaxodraw.sourceforge.net/download/bin.html  
+http://jaxodraw.sourceforge.net/download/axodraw4j.html  
+下载二进制文件之后，记得下载`axodraw4j`，这是一个LaTeX宏包。
+
+Mint自带有jre，所以下载预编绎代码就好了，解压后直接双击`jaxodraw-XXX.jar`就行了，也可以命令行运行`java -jar jaxodraw-XXX.jar`来打开。
+
+## 值得一提
+### 讯飞输入法
+相比与搜狗输入法， 我一直都比较喜欢讯飞的。在我即将放弃使用Deepin的时候，它上线了Deepin应用商店。在Linux下同样可以使用讯飞那无与伦比的语音输入法了，但是官网还没有给出下载的链接，只在Deepin的应用商店可以下载使用。我相信在如今这样大力推动国产操作系统的背景下，会有更多我们熟悉的软件上架GNU/Linux平台的，不信，你看人家QQ都顶不住压力了不是:angry:(表情源于我对[QQForLinux](https://im.qq.com/linuxqq/download.html)不满意)。

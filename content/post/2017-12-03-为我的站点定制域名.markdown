@@ -1,0 +1,102 @@
+---
+layout: "post"
+title: "为我的站点定制域名"
+author: "ResonHou"
+categories: ["Computer"]
+date: 2017-12-03 22:53:48
+tags: ["Blog","DomainName",]
+---
+今天用了一天, 终于成功地更改了站点的域名, 用上了我在很久以前就申请的域名——[RESON.EU.ORG](https://www.reson.eu.org).
+
+说来这也是一个并不复杂的过程, 不过是以前选择的DNS并不适用而已.现在我就说一下今天的流程, 以便记录.
+
+—— 2017 年 12 月 3 日
+
+<!-- more -->
+
+
+
+
+## 域名申请
+
+因为[RESON.EU.ORG](https://www.reson.eu.org)这个域名是在我还处于本科那个成天无所适从的时候, 为了找到可以搭建个人网站的免费资源而找到的. 你也可以到他们的网站( https://nic.eu.org )上去申请自己喜欢的域名(前提是别人没有注册过).
+
+我注册的时候, 他们的站点还是在墙外的, 不过今天我没有翻墙, 竟然上去了. 而且很流畅, 至于流畅的原因, 等你进他们的站点的时间就可以知道原因了^_^.
+
+## DNS 解析
+
+域名申请下来之后, 需要域名服务商(Domain name service)为我们解析到你的站点主机IP. 说白了, 在 Internet 上唯一真正的通用固定标识就是 IP 地址. 所以它们之间的关系大致如下:
+
+  人类 -> 简单明了的域名 -> DNS -> 你站点的主机 IP -> 你站点所放置的电脑 -> 电脑上的文件
+
+对,大概就是这个样子的.
+
+我接触到的第一个DNS是 [DNSPOD](http://dnspod.com), 也是一直坚持用的一个, 不过今天我一咬牙, 一跺脚, 决定换成 [CloudXNS](https://cloudxns.net). 事实证明,我的决定是没有错的.
+
+### [DNSPOD](http://dnspod.com)
+
+在网上找到的 EU.ORG 域名申请教程推荐使用的都是 DNSPOD, 所以当时也就用了这个 DNS. DNSPOD 分为国际版与国内版, 两者的帐号并不通用. 我之前用的国际版, 今天也用了一下国内版. 对比来说国内版提供了更多的服务, 包括域名监视等功能.
+
+> 今天才发现 DNSPOD 与 ** 腾讯云 ** 还有一腿, 他们竟然是一家的, 不过却有不同的服务.
+
+让人不爽的是, 你将 EU.ORG 那边的配置设置好后, 已经要等上半个小时至数个小时不等的时间了, DNSPOD 这边还要你等,(也可能是 DNSPOD 对 EU.ORG 域名的解析并不太顺畅), 反正就是一直会出现问题.
+
+### [CloudXNS](https://cloudxns.net)
+
+这个 DNS 是我今天去查 **coding.me** 的 IP 时看到它用的是 CloudXNS, 所以就去了解了一下, 顺便注册了一个帐户, 将 EU.ORG 搬迁到这里之后, 运行十分顺畅, 关键是在它这里的记录配置可以在数秒内生效, 这个效率真的是**杠杠的**
+
+不过用这个DNS是需要出卖自己的信息的, 因为它硬性要求**实名认证**才可以使用!
+
+### 配置 DNS
+
+1. 注册一个[CloudXNS](https://cloudxns.net)帐户, 然后登录进去!
+2. 添加一个域名(你准备注册的,或是已经注册的域名);
+3. 进入你的域名管理页面, 页面上方会提示你去注册域名的地方添加几条记录;
+4. 再打开一页面, 进入[EU.ORG](http://nic.eu.org), 按照你在网上搜到的方案去注册一个域名, 填写 **NS** 的时候就复制 **CloudXNS** 给出的记录进去;
+5. 一切就序之后, 可能要等上数个小时(运气好只需要一个小时不到), **EU.ORG** 才会配置好, 这个时间 **CloudXNS** 会在 **接管状态** 下显示一个绿色的对号.
+6. DONE!
+
+## 站点部署
+
+本来站点部署在 GitHub Pages 上. 不过看网上说, 现在 GitHub 与百度之间并不友好, 而我们国人又是离不开百度的, 所以改用 [Coding Pages](https://coding.net/help/doc/pages) 部署站点. 方式与 GitHub 是一样的, 他们都使用 GIT 作为作为版本管理工具, 迁移的过程并不复杂.
+
+1. 进入你注册的 [Coding](https://coding/login) 帐户, 创建一个仓库, 名字为 *username.coding.me* | username为你注册用的名称
+2. 修改原来部署在 GitHub 上的站点的文件链接(最好重新复制一份站点到一个新的 GIT 本地仓库)
+3. 将新的站点部署到 Coding Pages
+4. 更改 Coding 设置
+
+### 本地工作
+```
+cd newDir    # 进入新建的目录
+git init     # 在这个目录中初始化一个GIT仓库
+cp ~/originSiteFile/* ~/newDir/    # 复制原来的站点文件到这个新目录
+vim .gitignore   # 声明GIT要忽略的文件
+git add -A       # 让GIT知道他要管理的文件
+git commit -m "New Coding Pages"   # 提交更改到GIT
+git remote add origin https://coding.net/username/username.coding.me.git  # 添加远程仓库
+git push origin master  # 上传站点
+```
+
+### 设置 Coding Pages
+
+在网页上进入你的 Coding 仓库, 点击 Pages 服务, 开启 Pages 服务.当显示
+
+> Coding Pages 已经运行在 https://resonhou.coding.me
+
+恭喜你, 你现在点击上面网址就可以访问你的站点了.
+
+## 站点自定义域名
+
+* 先去 [CloudXNS](https://cloudxns.net) 上, 进入你的域名管理;
+* 增加一个记录
+
+| 主机记录 | 记录类型 | balabala | 记录值 | balabala |
+|:----|:----|:----|:----|:----|
+| @ | CNAME | 默认 | username.coding.me | 默认 |
+
+* 再去 [Coding](https://coding.net), 进入你的仓库, 选择 Pages 服务
+* 自定义域名中写下你的域名后, 点击绿色的**绑定**按钮.
+* 页面上方显示
+> Coding Pages 已经运行在 https://your.domain.name
+* DONE !
+

@@ -1,0 +1,32 @@
+---
+layout: "post"
+title: "电脑小技巧"
+author: "ResonHou"
+categories: ["Computer"]
+tags: ["小技巧","Linux"]
+date: 2020-04-07
+---
+
+这里的技巧适用于各种GNU/Linux发行版。  
+-- 快到碗里来
+<!--more-->
+
+
+## 加速Github
+1. 使用Gitee当跳板  
+Gitee 允许用户从GitHub上克隆仓库到 Gitee，然后我们就可以从Gitee再克隆到本地了。  
+2. 修改`/etc/hosts`文件  
+打开https://www.ipaddress.com，查看三个网址对应的ip地址  
+将如下三行信息写入`/etc/hosts`文件
+```
+140.82.113.3 github.com
+199.232.69.194 github.global.ssl.fastly.net
+140.82.113.19 codeload.github.com
+```
+
+---
+## 自动挂载NTFS硬盘
+add the follwed line to file: `/etc/fstab`  
+{{< admonition example >}}
+/dev/sdb1 /mount/place ntfs defaults,utf8,uid=1000,gid=1000,fmask=133,dmask=022 0 0
+{{< /admonition >}}

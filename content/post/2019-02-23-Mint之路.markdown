@@ -1,0 +1,76 @@
+---
+layout: "post"
+title: "Mint之路"
+author: "ResonHou"
+categories: ["Computer"]
+tags: ["Linux","Mint",]
+date: 2019-02-23
+---
+Linux Mint 是基于 Ubuntu 的发行版，而 Ubuntu 是基于 Debian 的，所以它们的包管理工具也就都是apt。这就是我改用这个发行版的原因。  
+作为活跃度排名第二:+1:（[Linux发行版使用排名](https://distrowatch.com/dwres.php?resource=popularity)）的Linux发行版，其有着开箱即用的明显优势。体验后发现其对非英语系统的支持也是非常出色的。
+
+常用快捷键：
+```bash
+Print           # 截屏
+Shift+Print     # 对选区截屏
+Alt + Print     # 对当前窗口截屏
+# 如果要将截屏放到剪贴板，在相应命令前加 Ctrl
+```
+<!--more-->
+
+[**Linux Mint**](https://www.linuxmint.com)是基于 Ubuntu 的发行版，界面优化还算可以，有多种图形界面可以选择。这里我选择 Mint 官方版，采用的是 Cinnamon 桌面环境。如下记录了自我升(zhe)华(mo)的历程。  
+
+## 1. 下载安装
+* 下载地址：https://www.linuxmint.com/download.php
+* 安装方式与 Ubuntu 一样，所以不再赘述。
+
+## After Installation
+### 使用Zsh
+> 方式参看：[Manjaro之路:install-zsh]({{ site.baseurl }}/{% post_url 2019-01-25-Manjaro之路 %}/#install-zsh)   
+
+**注意**：需先下载git
+
+Bash shell 作为最默认的基本工具，其安全稳定性毋庸置疑。但是少了点个性化，所以用zsh来满足自己的审美。  
+然后oh-my-zsh作为其模板库，用来使用别人写好的主题模板。
+```bash
+sudo apt install vim git zsh
+sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+vim .zshrc                  # 修改主题，我觉得 "josh" 主题挺好看的
+sudo vim /etc/passwd        # 修改默认的Shell
+```
+
+### 安装星际译王
+* 安装命令： `sudo apt install stardict `  
+字典下载地址：http://download.huzheng.org/zh_CN/  
+我现在使用的字典：  
+1. 懒虫简明汉英(英汉)词典
+2. 21世纪英汉汉英双向字典
+3. 计算机词汇
+
+### 使用python pip
+
+**注意**:  对于使用`pip`的意义有待商议，因为基于debian的系统在`apt`软件仓库中已经收录了python的库包，可用`sudo apt install python-**`来安装相应的库包。  
+
+Mint 自带 python ，但是没有 pip 包，所以先要下载 pip ( Mint19.1 现在默认使用的 python2.7 ，所以默认 pip 为 pip2 ，如果要使用 python3 ，则要下载 pip3 )，然后更改pip源，再下载numpy包。命令如下：
+```
+sudo apt install python-pip
+mkidr ~/.pip
+vim ~/.pip/pip.conf     # 添加内容如下
+pip install numpy
+```
+添加内容：  
+> [global]  
+index-url = https://pypi.tuna.tsinghua.edu.cn/simple  
+[install]  
+trusted-host = mirrors.aliyun.com  
+[list]  
+format=legacy  
+
+## 生产工具
+
+### 安装 Jaxodraw (费曼图)
+下载地址：http://jaxodraw.sourceforge.net/download/bin.html  
+http://jaxodraw.sourceforge.net/download/axodraw4j.html  
+下载二进制文件之后，记得下载`axodraw4j`，这是一个LaTeX宏包。
+
+Mint自带有jre，所以下载预编绎代码就好了，解压后直接双击`jaxodraw-XXX.jar`就行了，也可以命令行运行`java -jar jaxodraw-XXX.jar`来打开。
