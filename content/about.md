@@ -16,11 +16,11 @@ title: "About"
 我本来想过在别的博客平台写，不过由于本科时的经验，我还是决定，自己来建一个，这样才够自由，也才符合我的气质（对，就是气质）！
 
 ## 联系我
-
-* GitHub：[ResonWeb](https://github.com/resonweb)
 * email：resonhou@163.com
-* MyPage: https://resonweb.github.io
-* MyBlog: [https://resonweb.github.io/blog](https://resonweb.github.io/blog)
+* GitHub: https://github.com/resonweb
+* Gitee: https://gitee.com/resonhou
+* MyPage: https://www.reson.eu.org
+* MyBlog: https://blog.reson.eu.org
 
 ## 关于本站
 

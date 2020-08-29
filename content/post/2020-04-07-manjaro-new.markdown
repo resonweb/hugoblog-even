@@ -72,7 +72,7 @@ sudo pacman -Syu    	# Then upgrade you system
 sudo pacman -Qg base-devel
 sudo pacman -S base-devel
 sudo pacman -S ranger atool hightlight w3m
-sudo pacman -S fcitx fcitx-configtool
+sudo pacman -S fcitx fcitx-configtool fcitx-qt5
 sudo pacman -S code		
 sudo pacman -S libreoffice-still libreoffice-still-zh-cn
 sudo pacman -S i3 rofi volumeicon variety picom 
@@ -96,7 +96,7 @@ sudo pacman -S virtualbox linux54-virtualbox-host-modules
 
 
 注：小企鹅输入法说明  
-1. 安装完 fcitx 后，还需在`~/.profile`中加入输入法选项才可以。
+1. 安装完 fcitx 后，还需在`~/.xprofile`中加入输入法选项才可以。
 ```bash
 export GTK_IM_MODULE="fcitx"
 export QT_IM_MODULE="fcitx"
@@ -108,6 +108,7 @@ export XMODIFIERS="@im=fcitx"
 重启，在lightdm界面右下角修改`en_GB.utf8`为`zh_CN.utf8`  
 3. 英文系统下默认不添加拼音和五笔输入法，需要手动添加。尽量使用Fcitx自带的输入法，响应速度快。  
 也可以下载使用SogouPinYin，但是五笔输入法的候选框乱码，我也就不再折腾了。
+4. 最后一个qt5包是必须的, 不然 texstudio 无法输入中文.
 
 {{< admonition tip "tip" >}}
 注：修改默认 Shell 为 zsh 

@@ -2,41 +2,11 @@
 title: "Mathematica"
 date: 2020-04-21T09:37:20+08:00
 lastmod: 2020-04-21T09:37:20+08:00
-draft: true
+draft: false
 keywords: ["Mathematica"]
 description: "A little knowledge about mathematica"
 tags: ["SoftWare","Mathematica"]
 categories: ["学术软件教程"]
-author: ""
-
-# You can also close(false) or open(true) something for this content.
-# P.S. comment can only be closed
-comment: false
-toc: true
-autoCollapseToc: false
-postMetaInFooter: true
-hiddenFromHomePage: false
-# You can also define another contentCopyright. e.g. contentCopyright: "This is another copyright."
-reward: false
-mathjax: false
-mathjaxEnableSingleDollar: false
-mathjaxEnableAutoNumber: false
-
-# You unlisted posts you might want not want the header or footer to show
-hideHeaderAndFooter: false
-
-# You can enable or disable out-of-date content warning for individual post.
-# Comment this out to use the global config.
-#enableOutdatedInfoWarning: false
-
-flowchartDiagrams:
-  enable: false
-  options: ""
-
-sequenceDiagrams: 
-  enable: false
-  options: ""
-
 ---
 
 Mathematica 是一个符号计算领域十分强大的软件，依托于它们自己开发的 Wolfram 语言及方便使用的 NoteBook， 使其在科学计算等众多领域有广泛的使用。   
@@ -45,6 +15,26 @@ Mathematica 是一个符号计算领域十分强大的软件，依托于它们�
 <!--more-->
 
 ---
+## 使用方式
+### NoteBook
+这个方式使用起来就不必我赘述了。
+
+### 命令行使用
+> 参见：[官方说明](https://reference.wolfram.com/language/ref/program/WolframKernel.html)  
+
+有两种方式可以在命令行中使用mathematica
+1. `math -script yourFile.wl`   
+math: 等价的命令还有`math`，`wolfram`,`MathKernel`,`WolframKernel`。  
+yourFile.wl: 这个文件中的语句就是NoteBook中的语句。可以用NoteBook直接SaveAs成wl格式，但要注意需要先把NoteBook中的Cell转成 ”Code“ style。  
+方法：选中Cell; 快捷键`Alt+8`;
+2. `./yourFile.wl`  
+在文件开头加上 sharp-bang
+```bash
+#!/home/reson/bin/math -script
+
+Print["Hello World"]
+```
+
 ## 高圈计算
 高能物理的高圈计算可能会使用FeynArts-FormCalc-LoopTools套装，详情请移步[官网](http://www.feynarts.de/)。  
 

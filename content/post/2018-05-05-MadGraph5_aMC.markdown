@@ -37,7 +37,7 @@ MG5_aMC>install Delphes         # 注意区分大小写，在输入 install 后�
 其他的选项可自行查阅[ MG5 说明书](https://arxiv.org/abs/1405.0301v2)。
 
 ## 使用说明
-> ** 此文章全篇默认当前目录为 ** `MG5_aMC_v***/`
+> **此文章全篇默认当前目录为** `MG5_aMC_vxxx/`
 
 MadGraph5_aMC 可用于实现指定模型下的任意过程计算，最终给出过程的散射截面，并且产生用于后期分析的事例文件。  
 ### 初级操作
@@ -105,7 +105,7 @@ cd ~/Downloads/MG5_aMC_***/process/pptt/    # 以实际路径为准
 
 
 
-** 事例目录中子目录的说明：**  
+**事例目录中子目录的说明：**  
 ./ &nbsp;&nbsp;&nbsp;&nbsp; 指代事例目录，如：`process/pptt`  
 ├── bin &nbsp;&nbsp;&nbsp;&nbsp; 存放可执行文件  
 ├── Cards &nbsp;&nbsp;&nbsp;&nbsp; 存放卡片文件，可以运算代码之前修改  
