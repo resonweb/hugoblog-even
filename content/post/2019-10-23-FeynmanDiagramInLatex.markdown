@@ -43,7 +43,7 @@ date: 2019-10-23
    {{< /admonition >}}
 {{< /admonition >}}
 {{< admonition warning "注意" >}}
-      使用`xeLatex,LuaLatex`来编译的Tex文档，**必须**是*UTF-8*编码的文档。
+      使用 xeLatex,LuaLatex 来编译的 Tex 文档，必须是 UTF-8 编码的文档。
 {{< /admonition >}}
 回到费曼图上来，
 1. 为什么不能用好用的编译器来编译axoDraw2的费曼图呢？  
