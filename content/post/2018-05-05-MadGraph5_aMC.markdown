@@ -25,7 +25,7 @@ date: 2018-05-05
 cd ~/Downloads                  # 进入下载的压缩包所在的目录
 tar -xzvf MG5_aMC_v***.tar.gz   # 解压 "***"代表版本号
 cd ./MG5_aMC_v***               # 进入 MG5 所在的目录
-./bin/mg5_aMC                     # 运行 MG5 ，命令行提示符变为：MG5_aMC>
+./bin/mg5_aMC                   # 运行 MG5 ，命令行提示符变为：MG5_aMC>
 ```
 
 ### 使用 Pythia 和 Delphes
@@ -35,6 +35,26 @@ MG5_aMC>install pythia8         # MG5_aMC>只是提示符，代表 MG5 开启，
 MG5_aMC>install Delphes         # 注意区分大小写，在输入 install 后，可点击两次 Tab 键，显示所有的选项。
 ```
 其他的选项可自行查阅[ MG5 说明书](https://arxiv.org/abs/1405.0301v2)。
+
+{{< admonition type="note" title="TroubleShooting" >}}
+在MG5_2.7.3版本中，直接调用上面安装 Delphes 的方式，会出现编译错误的情况。</br>
+解决方式就是选择手动编译安装，命令见下面代码块。
+{{< /admonition >}}
+```bash
+# 下载源码，两种方式二选一
+wget http://cp3.irmp.ucl.ac.be/downloads/Delphes-3.4.2.tar.gz && tar -zxf Delphes-3.4.2.tar.gz
+git clone https://github.com/delphes/delphes.git    # 备用方式
+
+cd Delphes-3.4.2                # 进入源码目录
+mkdir build && cd build         # 新建并进入 build 目录
+
+# 构建任务信息，并指定安装位置（用实际 MG5 的目录替换 ‘/PATH/TO/MG5’）
+cmake -DCMAKE_INSTALL_PREFIX=/PATH/TO/MG5/Delphes '..'
+
+# 编译并安装 Delphes, -j 后的数字是调用的内核数量
+make -j8 install                
+```
+
 
 ## 使用说明
 > **此文章全篇默认当前目录为** `MG5_aMC_vxxx/`
