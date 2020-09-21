@@ -1,23 +1,35 @@
 ---
 layout: "post"
-title: "EndNote安装与使用"
+title: "文献管理"
 author: "ResonHou"
 categories: ["学术软件教程"]
-tags: ["EndNote","SoftWare",]
-date: 2017-12-29
+tags: ["SoftWare",]
+date: 2020-09-21
 hiddenFromHomePage: true
 ---
-{{< admonition warning "不要使用这个，不要使用这个，不要使用这个">}}
+
+主要说明 Zotero 和 JabRef 简单使用!
+<!--more-->
+---
+
+文献的管理，我们通常会使用目录树来存储全文。这样存储固然是好的，但在写文章时，插入到Latex时确实在是非常困难。于是这个时候文献管理工具就可以上场了。
+
+> 开头声明，文献管理工具学会了当然是香的，但**必要性**只有等*写文章*时才会体现。
+## 什么是索引
+通常我们存储在本地目录树中的PDF文件都是全文存储的，文件属性（如作者、标题、摘要等）都可以在全文中找到。但全文通常会占用大量存储空间，并且在自己写文章时，我们引用的不是全文，而是可以唯一标识文献的特定几个属性。
+
+索引：就是这些具有唯一标识功能的属性组成的集合，形如 {属性1，属性2，...}。我们使用的某一篇文献的索引的构成要素大致有{标题，作者，单位，年份，期刊号，摘要，DOI，ArxivID，页码，全文链接，等}。这些信息简单，了了几个字符串就可以将一篇文章唯一标定。我们在Arxiv上浏览每日更新时，看到的就是这些信息。
+
+
+
+
+
+{{< admonition warning "不要使用EndNote，不要使用EndNote，不要使用EndNote">}}
 <ol>
     <li>版权原因: 我们可以私下使用盗版，但不可以理所应当。 </li>
     <li>不好用：对于经常使用Tex的人来说，我觉得并不好用。</li>
 </ol>
 {{< /admonition >}}
-
-
-用 Zotero or JabRef or Zotero+JabRef!
-<!--more-->
-
 ## 软件说明
 EndNote是一款文献管理软件，能够有效的管理大量的文献。虽然在初次导入文献时可能会有点费时，但是如果在学会用检索网站(如：[IspireHEP](http://ispirehep.net), [Arxiv](https://arxiv.org/list/hep-ph/new))直接导出成EndNote格式，则会方便许多。最主要的是EndNote可以在写论文时，以tex等多种格式导出，直接用于书写文章。
 
