@@ -20,3 +20,6 @@ mathjaxEnableAutoNumber: false
 
 2. Ubuntu终端默认配色方案。  
 背景颜色：#2C001E(44.0.30)
+
+3. PDF阅读器纸张配色.  
+#dfd8be(223,216,190)
